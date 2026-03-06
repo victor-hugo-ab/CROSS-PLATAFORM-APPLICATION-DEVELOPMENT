@@ -1,0 +1,5 @@
+# Ignorar o diretório gerado pelo TypeScript
+dist/
+
+# Ignorar source maps
+*.map
