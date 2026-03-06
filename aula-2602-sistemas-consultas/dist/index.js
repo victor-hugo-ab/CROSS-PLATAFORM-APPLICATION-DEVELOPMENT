@@ -1,10 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const especialidades_1 = require("./types/especialidades");
-const paciente_1 = require("./types/paciente");
-const statusConsulta_1 = require("./types/statusConsulta");
-const medico_1 = require("./interfaces/medico");
-const consulta_1 = require("./interfaces/consulta");
 // Especialidades
 const cardiologia = {
     id: 1,
@@ -72,19 +65,13 @@ function criarConsulta(id, medico, paciente, data, valor) {
     };
 }
 function confirmarConsulta(consulta) {
-    return {
-        ...consulta,
-        status: "confirmada",
-    };
+    return Object.assign(Object.assign({}, consulta), { status: "confirmada" });
 }
 function cancelarConsulta(consulta) {
     if (consulta.status === "realizada") {
         return null;
     }
-    return {
-        ...consulta,
-        status: "cancelada",
-    };
+    return Object.assign(Object.assign({}, consulta), { status: "cancelada" });
 }
 function exibirConsulta(consulta) {
     const valorFormatado = consulta.valor.toLocaleString("pt-BR", {
@@ -105,4 +92,4 @@ const consulta1 = criarConsulta(1, medico1, paciente1, new Date(), 350);
 const consultaConfirmada = confirmarConsulta(consulta1);
 console.log("=== CONSULTA CONFIRMADA ===");
 console.log(exibirConsulta(consultaConfirmada));
-//# sourceMappingURL=index.js.map
+export {};
